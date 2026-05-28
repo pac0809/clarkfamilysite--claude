@@ -16,39 +16,38 @@
       min-height: 100vh;
     }
 
-    /* ── Header ──────────────────────────────────────────────────────────── */
+    /* ── Header ──────────────────────────────────────────────────────── */
     .header {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid #e2e8f0;
     }
     .header-inner {
-      max-width: 860px; margin: 0 auto;
-      padding: 0.875rem 1.25rem;
+      max-width: 900px; margin: 0 auto;
+      padding: 0.9rem 1.25rem;
       display: flex; align-items: center; gap: 0.875rem;
     }
-    .site-title { font-size: 1.125rem; font-weight: 700; color: #0f172a; white-space: nowrap; }
-    .site-sub   { font-size: 0.6875rem; color: #94a3b8; margin-top: 2px; }
+    .site-title { font-size: 1.2rem; font-weight: 700; color: #0f172a; white-space: nowrap; }
+    .site-sub   { font-size: 0.7rem; color: #94a3b8; margin-top: 2px; }
 
-    /* add-link button */
     .add-btn {
-      display: inline-flex; align-items: center; gap: 0.35rem;
-      padding: 0.45rem 0.875rem;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 0.95rem;
       background: #3b82f6; color: #fff;
       border: none; border-radius: 0.5rem;
       font-size: 0.8125rem; font-weight: 600; font-family: inherit;
       cursor: pointer; white-space: nowrap;
       transition: background 0.15s, box-shadow 0.15s;
+      flex-shrink: 0;
     }
-    .add-btn:hover { background: #2563eb; box-shadow: 0 2px 8px rgba(59,130,246,0.35); }
+    .add-btn:hover { background: #2563eb; box-shadow: 0 2px 8px rgba(59,130,246,0.4); }
 
-    /* search */
-    .search-wrap { flex: 1; position: relative; max-width: 260px; margin-left: auto; }
-    .search-wrap svg.icon {
+    .search-wrap { flex: 1; position: relative; max-width: 280px; margin-left: auto; }
+    .search-wrap svg {
       position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
-      width: 14px; height: 14px; color: #94a3b8; pointer-events: none;
+      width: 14px; height: 14px; color: #94a3b8; pointer-events: none; flex-shrink: 0;
     }
     .search-input {
       width: 100%; padding: 0.5rem 2rem 0.5rem 2.1rem;
@@ -69,52 +68,52 @@
     }
     .clear-btn:hover { color: #64748b; }
 
-    /* ── Main ────────────────────────────────────────────────────────────── */
+    /* ── Main ────────────────────────────────────────────────────────── */
     .main {
-      max-width: 860px; margin: 0 auto;
+      max-width: 900px; margin: 0 auto;
       padding: 1.25rem 1.25rem 3rem;
       display: flex; flex-direction: column; gap: 0.875rem;
     }
 
-    /* ── Category card ───────────────────────────────────────────────────── */
+    /* ── Category card ───────────────────────────────────────────────── */
     .cat-card {
       background: #fff; border: 1px solid #e2e8f0;
       border-radius: 1rem; overflow: hidden;
       box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s;
     }
-    .cat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    .cat-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.09); }
     .cat-header {
       display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.7rem 1.1rem; border-bottom: 1px solid transparent;
+      padding: 0.75rem 1.1rem; border-bottom: 1px solid transparent;
     }
-    .cat-icon  { font-size: 1rem; line-height: 1; }
-    .cat-name  { font-size: 0.8125rem; font-weight: 600; color: #1e293b; }
+    .cat-icon { font-size: 1.05rem; line-height: 1; }
+    .cat-name { font-size: 0.875rem; font-weight: 600; color: #1e293b; }
     .cat-badge {
-      margin-left: auto; font-size: 0.6875rem; font-weight: 600;
-      padding: 0.15rem 0.5rem; border-radius: 9999px;
+      margin-left: auto; font-size: 0.7rem; font-weight: 700;
+      padding: 0.15rem 0.55rem; border-radius: 9999px;
     }
     .cat-links {
       padding: 0.875rem 1.1rem;
       display: flex; flex-wrap: wrap; gap: 0.45rem;
+      min-height: 10px;
     }
 
-    /* ── Link wrapper (for delete button positioning) ────────────────────── */
+    /* ── Link wrap (positions the × button) ─────────────────────────── */
     .link-wrap { position: relative; display: inline-flex; }
-    .del-btn {
-      display: none;
-      position: absolute; top: -5px; right: -5px;
+    .link-wrap .del {
+      display: none; position: absolute; top: -5px; right: -5px;
       width: 16px; height: 16px;
       background: #ef4444; color: #fff;
       border: 2px solid #fff; border-radius: 50%;
-      font-size: 9px; font-weight: 700; line-height: 1;
+      font-size: 9px; font-weight: 800; line-height: 1;
       cursor: pointer; align-items: center; justify-content: center;
-      z-index: 10; transition: background 0.12s;
+      z-index: 5;
     }
-    .del-btn:hover { background: #dc2626; }
-    .link-wrap:hover .del-btn { display: flex; }
+    .link-wrap:hover .del { display: flex; }
+    .link-wrap .del:hover { background: #dc2626; }
 
-    /* ── Link button ─────────────────────────────────────────────────────── */
+    /* ── Link button ─────────────────────────────────────────────────── */
     .link-btn {
       display: inline-flex; align-items: center; gap: 0.35rem;
       padding: 0.4rem 0.8rem;
@@ -125,50 +124,51 @@
       transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s, color 0.12s;
     }
     .link-btn:hover {
-      border-color: #94a3b8;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.09);
+      border-color: #94a3b8; box-shadow: 0 3px 10px rgba(0,0,0,0.09);
       transform: translateY(-1px); color: #0f172a;
     }
-    .link-btn img { width: 13px; height: 13px; flex-shrink: 0; border-radius: 2px; }
-    .link-btn .ext { width: 9px; height: 9px; color: #d1d5db; flex-shrink: 0; transition: color 0.12s; }
-    .link-btn:hover .ext { color: #94a3b8; }
-    .link-btn.no-link { opacity: 0.38; cursor: default; pointer-events: none; }
+    .link-btn.inactive { opacity: 0.35; cursor: default; pointer-events: none; }
+    .link-btn img { width: 14px; height: 14px; flex-shrink: 0; border-radius: 2px; }
+    .link-btn .ext-ico { width: 9px; height: 9px; color: #d1d5db; flex-shrink: 0; }
+    .link-btn:hover .ext-ico { color: #94a3b8; }
 
-    /* ── Search states ───────────────────────────────────────────────────── */
-    .cat-card.hidden { display: none; }
+    /* ── Search hide ─────────────────────────────────────────────────── */
+    .cat-card.hidden  { display: none; }
     .link-wrap.hidden { display: none; }
     .no-results {
       display: none; text-align: center;
-      padding: 4rem 1rem; color: #94a3b8; font-size: 0.9375rem;
+      padding: 4rem 1rem; color: #94a3b8; font-size: 0.9rem;
     }
 
-    /* ── Modal ───────────────────────────────────────────────────────────── */
+    /* ── Modal overlay ───────────────────────────────────────────────── */
     .overlay {
-      display: none; position: fixed; inset: 0; z-index: 200;
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 200;
       background: rgba(15,23,42,0.5);
       align-items: center; justify-content: center; padding: 1rem;
     }
     .overlay.open { display: flex; }
+
     .modal {
       background: #fff; border-radius: 1rem;
       padding: 1.5rem; width: 100%; max-width: 420px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-      animation: pop 0.18s ease;
+      animation: modalIn 0.18s ease;
     }
-    @keyframes pop {
-      from { opacity: 0; transform: scale(0.95) translateY(8px); }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
       to   { opacity: 1; transform: none; }
     }
-    .modal-title {
-      font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 1.25rem;
-    }
+    .modal h2 { font-size: 1rem; font-weight: 700; margin-bottom: 1.25rem; }
+
     .field { margin-bottom: 1rem; }
     .field label {
       display: block; font-size: 0.75rem; font-weight: 600;
-      color: #64748b; margin-bottom: 0.35rem; letter-spacing: 0.02em;
+      color: #64748b; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.03em;
     }
     .field input, .field select {
-      width: 100%; padding: 0.5rem 0.75rem;
+      width: 100%; padding: 0.55rem 0.75rem;
       border: 1px solid #e2e8f0; border-radius: 0.5rem;
       font-size: 0.875rem; font-family: inherit; color: #0f172a;
       background: #f8fafc; outline: none;
@@ -178,111 +178,100 @@
       border-color: #93c5fd; background: #fff;
       box-shadow: 0 0 0 3px rgba(147,197,253,0.25);
     }
-    .modal-actions {
-      display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1.25rem;
-    }
+    .field-err { font-size: 0.75rem; color: #ef4444; margin-top: 0.3rem; display: none; }
+
+    .modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1.25rem; }
     .btn-cancel {
-      padding: 0.5rem 1rem; background: none; border: 1px solid #e2e8f0;
+      padding: 0.5rem 1rem; background: #fff; border: 1px solid #e2e8f0;
       border-radius: 0.5rem; font-size: 0.875rem; font-family: inherit;
       color: #64748b; cursor: pointer; transition: background 0.12s;
     }
     .btn-cancel:hover { background: #f8fafc; }
     .btn-save {
-      padding: 0.5rem 1.25rem; background: #3b82f6;
-      border: none; border-radius: 0.5rem;
-      font-size: 0.875rem; font-weight: 600; font-family: inherit;
-      color: #fff; cursor: pointer; transition: background 0.12s;
+      padding: 0.5rem 1.25rem; background: #3b82f6; border: none;
+      border-radius: 0.5rem; font-size: 0.875rem; font-weight: 600;
+      font-family: inherit; color: #fff; cursor: pointer;
+      transition: background 0.12s;
     }
     .btn-save:hover { background: #2563eb; }
-    .field-err { font-size: 0.75rem; color: #ef4444; margin-top: 0.3rem; display: none; }
 
-    /* ── Footer ──────────────────────────────────────────────────────────── */
-    .footer { text-align: center; padding: 1rem; font-size: 0.6875rem; color: #cbd5e1; }
+    /* ── Footer ──────────────────────────────────────────────────────── */
+    .footer { text-align: center; padding: 1rem; font-size: 0.7rem; color: #cbd5e1; }
     .footer a { color: #94a3b8; text-decoration: none; }
-    .footer a:hover { color: #64748b; }
+    .footer a:hover { text-decoration: underline; }
 
-    /* ── Responsive ──────────────────────────────────────────────────────── */
     @media (max-width: 560px) {
       .site-sub { display: none; }
       .search-wrap { max-width: none; }
-      .header-inner { gap: 0.5rem; }
-      .add-btn span { display: none; }
+      .add-btn .add-label { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────────────────────── -->
 <header class="header">
   <div class="header-inner">
     <div>
       <div class="site-title">Clark Family</div>
       <div class="site-sub">Handy links &amp; resources</div>
     </div>
-
     <button class="add-btn" onclick="openModal()">
       <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
       </svg>
-      <span>Add Link</span>
+      <span class="add-label">Add Link</span>
     </button>
-
     <div class="search-wrap">
-      <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
       </svg>
       <input class="search-input" id="search" type="text"
              placeholder="Search links…" autocomplete="off"
              oninput="filterLinks(this.value)">
-      <button class="clear-btn" id="clearBtn" onclick="clearSearch()" title="Clear">×</button>
+      <button class="clear-btn" id="clearBtn" onclick="clearSearch()">×</button>
     </div>
   </div>
 </header>
 
-<!-- ── Main ────────────────────────────────────────────────────────────── -->
 <main class="main" id="main">
   <div class="no-results" id="noResults">No links match your search.</div>
 </main>
 
-<!-- ── Footer ──────────────────────────────────────────────────────────── -->
 <footer class="footer">
   Clark Family · <span id="yr"></span>
-  &nbsp;·&nbsp; <a href="#" onclick="resetLinks();return false;">Reset to defaults</a>
+  &nbsp;·&nbsp;
+  <a href="#" onclick="resetAll();return false;">Reset to defaults</a>
 </footer>
 
-<!-- ── Add Link Modal ──────────────────────────────────────────────────── -->
-<div class="overlay" id="overlay" onclick="overlayClick(event)">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-title" id="modalTitle">Add a Link</div>
-
+<!-- Add Link Modal -->
+<div class="overlay" id="overlay" onclick="bgClick(event)">
+  <div class="modal">
+    <h2>Add a Link</h2>
     <div class="field">
-      <label for="f-title">Title</label>
-      <input id="f-title" type="text" placeholder="e.g. My Bank" autocomplete="off">
-      <div class="field-err" id="err-title">Please enter a title.</div>
+      <label for="fTitle">Title</label>
+      <input id="fTitle" type="text" placeholder="e.g. My Bank" autocomplete="off">
+      <div class="field-err" id="errTitle">Please enter a title.</div>
     </div>
-
     <div class="field">
-      <label for="f-url">URL</label>
-      <input id="f-url" type="url" placeholder="https://…" autocomplete="off">
-      <div class="field-err" id="err-url">Please enter a valid URL (include https://).</div>
+      <label for="fUrl">URL</label>
+      <input id="fUrl" type="text" placeholder="https://example.com" autocomplete="off">
+      <div class="field-err" id="errUrl">Please enter a URL starting with https://</div>
     </div>
-
     <div class="field">
-      <label for="f-cat">Category</label>
-      <select id="f-cat"></select>
+      <label for="fCat">Category</label>
+      <select id="fCat"></select>
     </div>
-
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-      <button class="btn-save"   onclick="saveLink()">Add Link</button>
+      <button class="btn-save" onclick="saveNewLink()">Add Link</button>
     </div>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════════════════════════════════════════════
-//  BUILT-IN LINKS  — edit these to change the hardcoded defaults
-// ═══════════════════════════════════════════════════════════════════════════
+// ─────────────────────────────────────────────────────────────────────────
+//  LINKS DATA  — edit the arrays below to change built-in links
+// ─────────────────────────────────────────────────────────────────────────
 const CATEGORIES = [
   {
     name: 'Banking & Finance', icon: '🏦', color: '#10b981',
@@ -332,230 +321,230 @@ const CATEGORIES = [
     ]
   },
 ]
-// ═══════════════════════════════════════════════════════════════════════════
-//  END EDIT
-// ═══════════════════════════════════════════════════════════════════════════
+// ─────────────────────────────────────────────────────────────────────────
 
-// ── localStorage keys ───────────────────────────────────────────────────
-const KEY_CUSTOM  = 'cf_custom'   // [{id,title,url,catName}]
-const KEY_HIDDEN  = 'cf_hidden'   // Set<id>  (built-in IDs or custom IDs)
+const LS_CUSTOM  = 'cf_custom'   // [{id,title,url,catName}]
+const LS_REMOVED = 'cf_removed'  // [id, id, ...]
 
-function loadCustom()  { try { return JSON.parse(localStorage.getItem(KEY_CUSTOM) || '[]') } catch { return [] } }
-function loadHidden()  { try { return new Set(JSON.parse(localStorage.getItem(KEY_HIDDEN) || '[]')) } catch { return new Set() } }
-function saveCustom(v) { localStorage.setItem(KEY_CUSTOM, JSON.stringify(v)) }
-function saveHidden(v) { localStorage.setItem(KEY_HIDDEN, JSON.stringify([...v])) }
+function getCustom()  { try { return JSON.parse(localStorage.getItem(LS_CUSTOM)  || '[]') } catch { return [] } }
+function getRemoved() { try { return new Set(JSON.parse(localStorage.getItem(LS_REMOVED) || '[]')) } catch { return new Set() } }
+function setCustom(v)  { localStorage.setItem(LS_CUSTOM,  JSON.stringify(v)) }
+function setRemoved(v) { localStorage.setItem(LS_REMOVED, JSON.stringify([...v])) }
 
-// stable ID for a built-in link
-function builtinId(catName, title) { return `b::${catName}::${title}` }
+// built-in link ID (stable, based on content not index)
+function bid(catName, title) { return 'b|' + catName + '|' + title }
 
-// ── Rendering ───────────────────────────────────────────────────────────
-const EXT_ICON = `<svg class="ext" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+// ── Render ─────────────────────────────────────────────────────────────
+const EXT = `<svg class="ext-ico" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round"
     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
 </svg>`
 
-function hexToRgb(hex) {
+function rgb(hex) {
   const h = hex.replace('#','')
   return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]
 }
 
-function favicon(url) {
-  try { return `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=32` }
-  catch { return null }
+function faviconUrl(url) {
+  try { return 'https://www.google.com/s2/favicons?domain=' + new URL(url).hostname + '&sz=32' }
+  catch { return '' }
 }
 
-function makeLinkEl(id, title, url, deleteHandler) {
-  const isReal = url && url !== '#'
-  const fav    = isReal ? favicon(url) : null
+function makeLinkNode(id, title, url) {
+  const real = url && url !== '#'
+  const fav  = real ? faviconUrl(url) : ''
 
   const wrap = document.createElement('span')
-  wrap.className      = 'link-wrap'
-  wrap.dataset.search = (title + ' ' + url).toLowerCase()
+  wrap.className       = 'link-wrap'
+  wrap.dataset.search  = (title + ' ' + url).toLowerCase()
 
   const a = document.createElement('a')
-  a.className = 'link-btn' + (isReal ? '' : ' no-link')
-  a.href      = isReal ? url : '#'
-  if (isReal) { a.target = '_blank'; a.rel = 'noopener noreferrer' }
+  a.className = 'link-btn' + (real ? '' : ' inactive')
+  a.href      = real ? url : '#'
+  if (real) { a.target = '_blank'; a.rel = 'noopener noreferrer' }
   a.title = title
-
-  const imgHtml = fav
-    ? `<img src="${fav}" alt="" onerror="this.style.display='none'">`
-    : `<span style="font-size:10px;line-height:1">🔗</span>`
-  a.innerHTML = `${imgHtml}<span>${title}</span>${isReal ? EXT_ICON : ''}`
+  a.innerHTML = (fav ? `<img src="${fav}" alt="" onerror="this.style.display='none'">` : '<span style="font-size:10px">🔗</span>')
+              + `<span>${title}</span>`
+              + (real ? EXT : '')
 
   const del = document.createElement('button')
-  del.className = 'del-btn'
-  del.title     = 'Remove'
+  del.className   = 'del'
+  del.title       = 'Remove'
   del.textContent = '×'
-  del.onclick = (e) => { e.preventDefault(); deleteHandler(id) }
+  del.addEventListener('click', function(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    removeLink(id)
+  })
 
   wrap.appendChild(a)
   wrap.appendChild(del)
   return wrap
 }
 
-function render() {
+function renderPage() {
   const main    = document.getElementById('main')
   const noRes   = document.getElementById('noResults')
-  const hidden  = loadHidden()
-  const custom  = loadCustom()
+  const removed = getRemoved()
+  const custom  = getCustom()
 
-  // clear previous cards (keep noResults div)
-  [...main.querySelectorAll('.cat-card')].forEach(el => el.remove())
+  // clear old cards
+  main.querySelectorAll('.cat-card').forEach(el => el.remove())
 
   CATEGORIES.forEach(cat => {
-    const [r,g,b] = hexToRgb(cat.color)
-    const catCustom = custom.filter(l => l.catName === cat.name)
+    const [r,g,b] = rgb(cat.color)
+    const removed_ = removed  // closure
 
-    // count visible links for this cat
-    const visibleBuiltin = cat.links.filter(l => !hidden.has(builtinId(cat.name, l.title))).length
-    const visibleCustom  = catCustom.filter(l => !hidden.has(l.id)).length
-    if (visibleBuiltin + visibleCustom === 0) return
+    // built-in links for this category that haven't been removed
+    const builtinVisible = cat.links.filter(l => !removed_.has(bid(cat.name, l.title)))
+    // custom links for this category that haven't been removed
+    const customVisible  = custom.filter(l => l.catName === cat.name && !removed_.has(l.id))
+
+    if (builtinVisible.length === 0 && customVisible.length === 0) return
 
     const card = document.createElement('section')
     card.className = 'cat-card'
-    card.innerHTML = `
-      <div class="cat-header"
-           style="background:rgba(${r},${g},${b},0.07);border-color:rgba(${r},${g},${b},0.18)">
-        <span class="cat-icon">${cat.icon}</span>
-        <span class="cat-name">${cat.name}</span>
-        <span class="cat-badge" style="background:rgba(${r},${g},${b},0.13);color:${cat.color}">
-          ${visibleBuiltin + visibleCustom}
-        </span>
-      </div>
-      <div class="cat-links"></div>`
+    card.innerHTML =
+      `<div class="cat-header" style="background:rgba(${r},${g},${b},0.07);border-color:rgba(${r},${g},${b},0.18)">
+         <span class="cat-icon">${cat.icon}</span>
+         <span class="cat-name">${cat.name}</span>
+         <span class="cat-badge" style="background:rgba(${r},${g},${b},0.13);color:${cat.color}">
+           ${builtinVisible.length + customVisible.length}
+         </span>
+       </div>
+       <div class="cat-links"></div>`
 
     const linksDiv = card.querySelector('.cat-links')
 
-    // built-in links
-    cat.links.forEach(link => {
-      const id = builtinId(cat.name, link.title)
-      if (hidden.has(id)) return
-      linksDiv.appendChild(makeLinkEl(id, link.title, link.url, removeLink))
-    })
-
-    // custom links for this category
-    catCustom.forEach(link => {
-      if (hidden.has(link.id)) return
-      linksDiv.appendChild(makeLinkEl(link.id, link.title, link.url, removeLink))
-    })
+    builtinVisible.forEach(link =>
+      linksDiv.appendChild(makeLinkNode(bid(cat.name, link.title), link.title, link.url))
+    )
+    customVisible.forEach(link =>
+      linksDiv.appendChild(makeLinkNode(link.id, link.title, link.url))
+    )
 
     main.insertBefore(card, noRes)
   })
 
-  // custom links with no matching category
-  const knownCatNames = new Set(CATEGORIES.map(c => c.name))
-  const orphans = custom.filter(l => !knownCatNames.has(l.catName) && !hidden.has(l.id))
+  // orphaned custom links (category was removed from CATEGORIES)
+  const knownCats = new Set(CATEGORIES.map(c => c.name))
+  const orphans   = custom.filter(l => !knownCats.has(l.catName) && !removed.has(l.id))
   if (orphans.length) {
     const card = document.createElement('section')
     card.className = 'cat-card'
-    card.innerHTML = `
-      <div class="cat-header" style="background:#f8fafc;border-color:#e2e8f0">
-        <span class="cat-icon">🔗</span>
-        <span class="cat-name">Other</span>
-        <span class="cat-badge" style="background:#f1f5f9;color:#64748b">${orphans.length}</span>
-      </div>
-      <div class="cat-links"></div>`
+    card.innerHTML =
+      `<div class="cat-header" style="background:#f8fafc;border-color:#e2e8f0">
+         <span class="cat-icon">🔗</span>
+         <span class="cat-name">Other</span>
+         <span class="cat-badge" style="background:#f1f5f9;color:#64748b">${orphans.length}</span>
+       </div>
+       <div class="cat-links"></div>`
     const linksDiv = card.querySelector('.cat-links')
-    orphans.forEach(link => linksDiv.appendChild(makeLinkEl(link.id, link.title, link.url, removeLink)))
+    orphans.forEach(l => linksDiv.appendChild(makeLinkNode(l.id, l.title, l.url)))
     main.insertBefore(card, noRes)
   }
 }
 
 function removeLink(id) {
-  const hidden = loadHidden()
-  hidden.add(id)
-  saveHidden(hidden)
-  render()
-  // re-apply any active search
+  const removed = getRemoved()
+  removed.add(id)
+  setRemoved(removed)
+  renderPage()
+  // reapply search if active
   const q = document.getElementById('search').value
   if (q) filterLinks(q)
 }
 
-// ── Search ──────────────────────────────────────────────────────────────
-function filterLinks(query) {
-  const q = query.trim().toLowerCase()
+// ── Search ─────────────────────────────────────────────────────────────
+function filterLinks(q) {
+  q = q.trim().toLowerCase()
   document.getElementById('clearBtn').style.display = q ? 'block' : 'none'
 
-  let visible = 0
+  let total = 0
   document.querySelectorAll('.cat-card').forEach(card => {
-    let cardVisible = 0
-    card.querySelectorAll('.link-wrap').forEach(wrap => {
-      const show = !q || wrap.dataset.search.includes(q)
-      wrap.classList.toggle('hidden', !show)
-      if (show) cardVisible++
+    let n = 0
+    card.querySelectorAll('.link-wrap').forEach(w => {
+      const show = !q || w.dataset.search.includes(q)
+      w.classList.toggle('hidden', !show)
+      if (show) n++
     })
-    card.classList.toggle('hidden', cardVisible === 0)
-    visible += cardVisible
+    card.classList.toggle('hidden', n === 0)
+    total += n
   })
-  document.getElementById('noResults').style.display = visible === 0 && q ? 'block' : 'none'
+  document.getElementById('noResults').style.display = total === 0 && q ? 'block' : 'none'
 }
 
 function clearSearch() {
-  const inp = document.getElementById('search')
-  inp.value = ''
+  document.getElementById('search').value = ''
   filterLinks('')
-  inp.focus()
+  document.getElementById('search').focus()
 }
 
 // ── Modal ───────────────────────────────────────────────────────────────
 function openModal() {
-  // populate category dropdown
-  const sel = document.getElementById('f-cat')
-  sel.innerHTML = CATEGORIES.map(c => `<option value="${c.name}">${c.icon} ${c.name}</option>`).join('')
+  // populate categories
+  const sel = document.getElementById('fCat')
+  sel.innerHTML = CATEGORIES.map(c =>
+    `<option value="${c.name}">${c.icon} ${c.name}</option>`
+  ).join('')
 
-  document.getElementById('f-title').value = ''
-  document.getElementById('f-url').value   = 'https://'
-  hideErr('title'); hideErr('url')
+  document.getElementById('fTitle').value = ''
+  document.getElementById('fUrl').value   = ''
+  document.getElementById('errTitle').style.display = 'none'
+  document.getElementById('errUrl').style.display   = 'none'
 
   document.getElementById('overlay').classList.add('open')
-  setTimeout(() => document.getElementById('f-title').focus(), 80)
+  setTimeout(() => document.getElementById('fTitle').focus(), 60)
 }
 
 function closeModal() {
   document.getElementById('overlay').classList.remove('open')
 }
 
-function overlayClick(e) {
+function bgClick(e) {
   if (e.target === document.getElementById('overlay')) closeModal()
 }
 
-function showErr(field) { document.getElementById('err-' + field).style.display = 'block' }
-function hideErr(field) { document.getElementById('err-' + field).style.display = 'none' }
-
-function saveLink() {
-  const title   = document.getElementById('f-title').value.trim()
-  const url     = document.getElementById('f-url').value.trim()
-  const catName = document.getElementById('f-cat').value
+function saveNewLink() {
+  const title   = document.getElementById('fTitle').value.trim()
+  const url     = document.getElementById('fUrl').value.trim()
+  const catName = document.getElementById('fCat').value
 
   let ok = true
-  if (!title)                        { showErr('title'); ok = false } else hideErr('title')
-  if (!url || url === 'https://')    { showErr('url');   ok = false } else hideErr('url')
+  document.getElementById('errTitle').style.display = !title ? 'block' : 'none'
+  if (!title) ok = false
+
+  const urlOk = url && (url.startsWith('http://') || url.startsWith('https://'))
+  document.getElementById('errUrl').style.display = !urlOk ? 'block' : 'none'
+  if (!urlOk) ok = false
+
   if (!ok) return
 
-  const custom = loadCustom()
-  custom.push({ id: 'c::' + Date.now(), title, url, catName })
-  saveCustom(custom)
+  const custom = getCustom()
+  custom.push({ id: 'c|' + Date.now(), title, url, catName })
+  setCustom(custom)
   closeModal()
-  render()
+  renderPage()
 }
 
 // ── Reset ───────────────────────────────────────────────────────────────
-function resetLinks() {
-  if (!confirm('Remove all your added links and unhide any removed ones? The page will return to its defaults.')) return
-  localStorage.removeItem(KEY_CUSTOM)
-  localStorage.removeItem(KEY_HIDDEN)
-  render()
+function resetAll() {
+  if (!confirm('Remove all added links and restore any you deleted?')) return
+  localStorage.removeItem(LS_CUSTOM)
+  localStorage.removeItem(LS_REMOVED)
+  renderPage()
 }
 
-// ── Keyboard shortcut: Escape closes modal ──────────────────────────────
+// ── Keyboard ────────────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal()
+  if ((e.key === 'Enter') && document.getElementById('overlay').classList.contains('open')) {
+    saveNewLink()
+  }
 })
 
 document.getElementById('yr').textContent = new Date().getFullYear()
-render()
+renderPage()
 </script>
-
 </body>
 </html>
