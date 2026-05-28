@@ -16,178 +16,217 @@
       min-height: 100vh;
     }
 
-    /* ── Header ─────────────────────────────────────────────────────────── */
+    /* ── Header ──────────────────────────────────────────────────────────── */
     .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.88);
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.9);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid #e2e8f0;
     }
     .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
       padding: 0.875rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
+      display: flex; align-items: center; gap: 0.875rem;
     }
-    .site-title   { font-size: 1.125rem; font-weight: 700; color: #0f172a; white-space: nowrap; }
-    .site-sub     { font-size: 0.6875rem; color: #94a3b8; margin-top: 2px; }
+    .site-title { font-size: 1.125rem; font-weight: 700; color: #0f172a; white-space: nowrap; }
+    .site-sub   { font-size: 0.6875rem; color: #94a3b8; margin-top: 2px; }
+
+    /* add-link button */
+    .add-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.45rem 0.875rem;
+      background: #3b82f6; color: #fff;
+      border: none; border-radius: 0.5rem;
+      font-size: 0.8125rem; font-weight: 600; font-family: inherit;
+      cursor: pointer; white-space: nowrap;
+      transition: background 0.15s, box-shadow 0.15s;
+    }
+    .add-btn:hover { background: #2563eb; box-shadow: 0 2px 8px rgba(59,130,246,0.35); }
 
     /* search */
-    .search-wrap  { flex: 1; position: relative; max-width: 280px; margin-left: auto; }
+    .search-wrap { flex: 1; position: relative; max-width: 260px; margin-left: auto; }
     .search-wrap svg.icon {
       position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%);
       width: 14px; height: 14px; color: #94a3b8; pointer-events: none;
     }
     .search-input {
-      width: 100%;
-      padding: 0.5rem 2rem 0.5rem 2.1rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 0.625rem;
-      background: #f8fafc;
-      font-size: 0.8125rem;
-      font-family: inherit;
-      color: #0f172a;
-      outline: none;
+      width: 100%; padding: 0.5rem 2rem 0.5rem 2.1rem;
+      border: 1px solid #e2e8f0; border-radius: 0.625rem;
+      background: #f8fafc; font-size: 0.8125rem; font-family: inherit;
+      color: #0f172a; outline: none;
       transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
     .search-input::placeholder { color: #94a3b8; }
     .search-input:focus {
-      border-color: #93c5fd;
-      background: #fff;
-      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.25);
+      border-color: #93c5fd; background: #fff;
+      box-shadow: 0 0 0 3px rgba(147,197,253,0.25);
     }
     .clear-btn {
-      display: none;
-      position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);
+      display: none; position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);
       background: none; border: none; cursor: pointer;
       color: #94a3b8; font-size: 1.1rem; line-height: 1; padding: 0 0.2rem;
     }
     .clear-btn:hover { color: #64748b; }
 
-    /* ── Main grid ───────────────────────────────────────────────────────── */
+    /* ── Main ────────────────────────────────────────────────────────────── */
     .main {
-      max-width: 860px;
-      margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
       padding: 1.25rem 1.25rem 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.875rem;
+      display: flex; flex-direction: column; gap: 0.875rem;
     }
 
-    /* ── Category card ──────────────────────────────────────────────────── */
+    /* ── Category card ───────────────────────────────────────────────────── */
     .cat-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      background: #fff; border: 1px solid #e2e8f0;
+      border-radius: 1rem; overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s;
     }
-    .cat-card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
-
+    .cat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
     .cat-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.7rem 1.1rem;
-      border-bottom: 1px solid transparent;
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 1.1rem; border-bottom: 1px solid transparent;
     }
     .cat-icon  { font-size: 1rem; line-height: 1; }
     .cat-name  { font-size: 0.8125rem; font-weight: 600; color: #1e293b; }
     .cat-badge {
-      margin-left: auto;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      padding: 0.15rem 0.5rem;
-      border-radius: 9999px;
+      margin-left: auto; font-size: 0.6875rem; font-weight: 600;
+      padding: 0.15rem 0.5rem; border-radius: 9999px;
     }
-
     .cat-links {
       padding: 0.875rem 1.1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
     }
 
-    /* ── Link button ────────────────────────────────────────────────────── */
+    /* ── Link wrapper (for delete button positioning) ────────────────────── */
+    .link-wrap { position: relative; display: inline-flex; }
+    .del-btn {
+      display: none;
+      position: absolute; top: -5px; right: -5px;
+      width: 16px; height: 16px;
+      background: #ef4444; color: #fff;
+      border: 2px solid #fff; border-radius: 50%;
+      font-size: 9px; font-weight: 700; line-height: 1;
+      cursor: pointer; align-items: center; justify-content: center;
+      z-index: 10; transition: background 0.12s;
+    }
+    .del-btn:hover { background: #dc2626; }
+    .link-wrap:hover .del-btn { display: flex; }
+
+    /* ── Link button ─────────────────────────────────────────────────────── */
     .link-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
       padding: 0.4rem 0.8rem;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      color: #374151;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      font-family: inherit;
-      cursor: pointer;
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 0.5rem;
+      text-decoration: none; color: #374151;
+      font-size: 0.8125rem; font-weight: 500; font-family: inherit;
+      cursor: pointer; white-space: nowrap;
       transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s, color 0.12s;
-      white-space: nowrap;
     }
     .link-btn:hover {
       border-color: #94a3b8;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.09);
-      transform: translateY(-1px);
-      color: #0f172a;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.09);
+      transform: translateY(-1px); color: #0f172a;
     }
-    .link-btn img {
-      width: 13px; height: 13px;
-      flex-shrink: 0;
-      border-radius: 2px;
-    }
-    .link-btn .ext {
-      width: 9px; height: 9px;
-      color: #d1d5db;
-      flex-shrink: 0;
-      transition: color 0.12s;
-    }
+    .link-btn img { width: 13px; height: 13px; flex-shrink: 0; border-radius: 2px; }
+    .link-btn .ext { width: 9px; height: 9px; color: #d1d5db; flex-shrink: 0; transition: color 0.12s; }
     .link-btn:hover .ext { color: #94a3b8; }
     .link-btn.no-link { opacity: 0.38; cursor: default; pointer-events: none; }
 
-    /* ── Search states ──────────────────────────────────────────────────── */
+    /* ── Search states ───────────────────────────────────────────────────── */
     .cat-card.hidden { display: none; }
-    .link-btn.hidden { display: none; }
-
+    .link-wrap.hidden { display: none; }
     .no-results {
-      display: none;
-      text-align: center;
-      padding: 4rem 1rem;
-      color: #94a3b8;
-      font-size: 0.9375rem;
+      display: none; text-align: center;
+      padding: 4rem 1rem; color: #94a3b8; font-size: 0.9375rem;
     }
 
-    /* ── Footer ─────────────────────────────────────────────────────────── */
-    .footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.6875rem;
-      color: #cbd5e1;
+    /* ── Modal ───────────────────────────────────────────────────────────── */
+    .overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(15,23,42,0.5);
+      align-items: center; justify-content: center; padding: 1rem;
     }
+    .overlay.open { display: flex; }
+    .modal {
+      background: #fff; border-radius: 1rem;
+      padding: 1.5rem; width: 100%; max-width: 420px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      animation: pop 0.18s ease;
+    }
+    @keyframes pop {
+      from { opacity: 0; transform: scale(0.95) translateY(8px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .modal-title {
+      font-size: 1rem; font-weight: 700; color: #0f172a; margin-bottom: 1.25rem;
+    }
+    .field { margin-bottom: 1rem; }
+    .field label {
+      display: block; font-size: 0.75rem; font-weight: 600;
+      color: #64748b; margin-bottom: 0.35rem; letter-spacing: 0.02em;
+    }
+    .field input, .field select {
+      width: 100%; padding: 0.5rem 0.75rem;
+      border: 1px solid #e2e8f0; border-radius: 0.5rem;
+      font-size: 0.875rem; font-family: inherit; color: #0f172a;
+      background: #f8fafc; outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .field input:focus, .field select:focus {
+      border-color: #93c5fd; background: #fff;
+      box-shadow: 0 0 0 3px rgba(147,197,253,0.25);
+    }
+    .modal-actions {
+      display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1.25rem;
+    }
+    .btn-cancel {
+      padding: 0.5rem 1rem; background: none; border: 1px solid #e2e8f0;
+      border-radius: 0.5rem; font-size: 0.875rem; font-family: inherit;
+      color: #64748b; cursor: pointer; transition: background 0.12s;
+    }
+    .btn-cancel:hover { background: #f8fafc; }
+    .btn-save {
+      padding: 0.5rem 1.25rem; background: #3b82f6;
+      border: none; border-radius: 0.5rem;
+      font-size: 0.875rem; font-weight: 600; font-family: inherit;
+      color: #fff; cursor: pointer; transition: background 0.12s;
+    }
+    .btn-save:hover { background: #2563eb; }
+    .field-err { font-size: 0.75rem; color: #ef4444; margin-top: 0.3rem; display: none; }
 
-    /* ── Responsive ─────────────────────────────────────────────────────── */
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    .footer { text-align: center; padding: 1rem; font-size: 0.6875rem; color: #cbd5e1; }
+    .footer a { color: #94a3b8; text-decoration: none; }
+    .footer a:hover { color: #64748b; }
+
+    /* ── Responsive ──────────────────────────────────────────────────────── */
     @media (max-width: 560px) {
       .site-sub { display: none; }
       .search-wrap { max-width: none; }
-      .header-inner { gap: 0.75rem; }
+      .header-inner { gap: 0.5rem; }
+      .add-btn span { display: none; }
     }
   </style>
 </head>
 <body>
 
+<!-- ── Header ──────────────────────────────────────────────────────────── -->
 <header class="header">
   <div class="header-inner">
     <div>
       <div class="site-title">Clark Family</div>
       <div class="site-sub">Handy links &amp; resources</div>
     </div>
+
+    <button class="add-btn" onclick="openModal()">
+      <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+      </svg>
+      <span>Add Link</span>
+    </button>
+
     <div class="search-wrap">
       <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
@@ -200,26 +239,53 @@
   </div>
 </header>
 
+<!-- ── Main ────────────────────────────────────────────────────────────── -->
 <main class="main" id="main">
   <div class="no-results" id="noResults">No links match your search.</div>
 </main>
 
+<!-- ── Footer ──────────────────────────────────────────────────────────── -->
 <footer class="footer">
   Clark Family · <span id="yr"></span>
+  &nbsp;·&nbsp; <a href="#" onclick="resetLinks();return false;">Reset to defaults</a>
 </footer>
+
+<!-- ── Add Link Modal ──────────────────────────────────────────────────── -->
+<div class="overlay" id="overlay" onclick="overlayClick(event)">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-title" id="modalTitle">Add a Link</div>
+
+    <div class="field">
+      <label for="f-title">Title</label>
+      <input id="f-title" type="text" placeholder="e.g. My Bank" autocomplete="off">
+      <div class="field-err" id="err-title">Please enter a title.</div>
+    </div>
+
+    <div class="field">
+      <label for="f-url">URL</label>
+      <input id="f-url" type="url" placeholder="https://…" autocomplete="off">
+      <div class="field-err" id="err-url">Please enter a valid URL (include https://).</div>
+    </div>
+
+    <div class="field">
+      <label for="f-cat">Category</label>
+      <select id="f-cat"></select>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save"   onclick="saveLink()">Add Link</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
-//  EDIT YOUR LINKS BELOW
-//  Each category has: name, icon (emoji), color (hex), and a links array.
-//  Each link has: title and url.  Use url: '#' for links not yet set up.
+//  BUILT-IN LINKS  — edit these to change the hardcoded defaults
 // ═══════════════════════════════════════════════════════════════════════════
-
 const CATEGORIES = [
   {
-    name: 'Banking & Finance',
-    icon: '🏦',
-    color: '#10b981',
+    name: 'Banking & Finance', icon: '🏦', color: '#10b981',
     links: [
       { title: 'Bank Australia',              url: 'https://www.bankaust.com.au' },
       { title: 'Bendigo Bank',                url: 'https://www.bendigobank.com.au' },
@@ -232,9 +298,7 @@ const CATEGORIES = [
     ]
   },
   {
-    name: 'Utilities & Services',
-    icon: '⚡',
-    color: '#f59e0b',
+    name: 'Utilities & Services', icon: '⚡', color: '#f59e0b',
     links: [
       { title: 'Powercor myEnergy',  url: 'https://myenergy.powercor.com.au' },
       { title: 'Aussie Broadband',   url: 'https://www.aussiebroadband.com.au' },
@@ -244,18 +308,7 @@ const CATEGORIES = [
     ]
   },
   {
-    name: 'Education',
-    icon: '📚',
-    color: '#8b5cf6',
-    links: [
-      { title: 'Bacchus Marsh Grammar', url: 'https://www.bmg.vic.edu.au' },
-      { title: 'BMG Roll Call',         url: 'https://rollcall.bmg.vic.edu.au' },
-    ]
-  },
-  {
-    name: 'Social & Entertainment',
-    icon: '🎬',
-    color: '#ef4444',
+    name: 'Social & Entertainment', icon: '🎬', color: '#ef4444',
     links: [
       { title: 'Facebook',        url: 'https://www.facebook.com' },
       { title: 'YouTube',         url: 'https://www.youtube.com' },
@@ -264,9 +317,7 @@ const CATEGORIES = [
     ]
   },
   {
-    name: 'Search & News',
-    icon: '🔍',
-    color: '#3b82f6',
+    name: 'Search & News', icon: '🔍', color: '#3b82f6',
     links: [
       { title: 'Google',      url: 'https://www.google.com' },
       { title: 'Google Maps', url: 'https://maps.google.com' },
@@ -275,107 +326,169 @@ const CATEGORIES = [
     ]
   },
   {
-    name: 'Property',
-    icon: '🏠',
-    color: '#06b6d4',
+    name: 'Property', icon: '🏠', color: '#06b6d4',
     links: [
       { title: 'Real Estate', url: 'https://www.realestate.com.au' },
     ]
   },
 ]
-
 // ═══════════════════════════════════════════════════════════════════════════
-//  END EDIT — nothing below needs to change
+//  END EDIT
 // ═══════════════════════════════════════════════════════════════════════════
 
+// ── localStorage keys ───────────────────────────────────────────────────
+const KEY_CUSTOM  = 'cf_custom'   // [{id,title,url,catName}]
+const KEY_HIDDEN  = 'cf_hidden'   // Set<id>  (built-in IDs or custom IDs)
+
+function loadCustom()  { try { return JSON.parse(localStorage.getItem(KEY_CUSTOM) || '[]') } catch { return [] } }
+function loadHidden()  { try { return new Set(JSON.parse(localStorage.getItem(KEY_HIDDEN) || '[]')) } catch { return new Set() } }
+function saveCustom(v) { localStorage.setItem(KEY_CUSTOM, JSON.stringify(v)) }
+function saveHidden(v) { localStorage.setItem(KEY_HIDDEN, JSON.stringify([...v])) }
+
+// stable ID for a built-in link
+function builtinId(catName, title) { return `b::${catName}::${title}` }
+
+// ── Rendering ───────────────────────────────────────────────────────────
 const EXT_ICON = `<svg class="ext" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round"
     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
 </svg>`
 
 function hexToRgb(hex) {
-  const h = hex.replace('#', '')
-  return [
-    parseInt(h.slice(0, 2), 16),
-    parseInt(h.slice(2, 4), 16),
-    parseInt(h.slice(4, 6), 16),
-  ]
+  const h = hex.replace('#','')
+  return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)]
 }
 
 function favicon(url) {
-  try {
-    return `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=32`
-  } catch { return null }
+  try { return `https://www.google.com/s2/favicons?domain=${new URL(url).hostname}&sz=32` }
+  catch { return null }
+}
+
+function makeLinkEl(id, title, url, deleteHandler) {
+  const isReal = url && url !== '#'
+  const fav    = isReal ? favicon(url) : null
+
+  const wrap = document.createElement('span')
+  wrap.className      = 'link-wrap'
+  wrap.dataset.search = (title + ' ' + url).toLowerCase()
+
+  const a = document.createElement('a')
+  a.className = 'link-btn' + (isReal ? '' : ' no-link')
+  a.href      = isReal ? url : '#'
+  if (isReal) { a.target = '_blank'; a.rel = 'noopener noreferrer' }
+  a.title = title
+
+  const imgHtml = fav
+    ? `<img src="${fav}" alt="" onerror="this.style.display='none'">`
+    : `<span style="font-size:10px;line-height:1">🔗</span>`
+  a.innerHTML = `${imgHtml}<span>${title}</span>${isReal ? EXT_ICON : ''}`
+
+  const del = document.createElement('button')
+  del.className = 'del-btn'
+  del.title     = 'Remove'
+  del.textContent = '×'
+  del.onclick = (e) => { e.preventDefault(); deleteHandler(id) }
+
+  wrap.appendChild(a)
+  wrap.appendChild(del)
+  return wrap
 }
 
 function render() {
-  const main = document.getElementById('main')
-  const noResults = document.getElementById('noResults')
+  const main    = document.getElementById('main')
+  const noRes   = document.getElementById('noResults')
+  const hidden  = loadHidden()
+  const custom  = loadCustom()
 
-  CATEGORIES.forEach((cat, ci) => {
-    const [r, g, b] = hexToRgb(cat.color)
+  // clear previous cards (keep noResults div)
+  [...main.querySelectorAll('.cat-card')].forEach(el => el.remove())
+
+  CATEGORIES.forEach(cat => {
+    const [r,g,b] = hexToRgb(cat.color)
+    const catCustom = custom.filter(l => l.catName === cat.name)
+
+    // count visible links for this cat
+    const visibleBuiltin = cat.links.filter(l => !hidden.has(builtinId(cat.name, l.title))).length
+    const visibleCustom  = catCustom.filter(l => !hidden.has(l.id)).length
+    if (visibleBuiltin + visibleCustom === 0) return
 
     const card = document.createElement('section')
     card.className = 'cat-card'
-
     card.innerHTML = `
       <div class="cat-header"
            style="background:rgba(${r},${g},${b},0.07);border-color:rgba(${r},${g},${b},0.18)">
         <span class="cat-icon">${cat.icon}</span>
         <span class="cat-name">${cat.name}</span>
-        <span class="cat-badge"
-              style="background:rgba(${r},${g},${b},0.13);color:${cat.color}">
-          ${cat.links.length}
+        <span class="cat-badge" style="background:rgba(${r},${g},${b},0.13);color:${cat.color}">
+          ${visibleBuiltin + visibleCustom}
         </span>
       </div>
-      <div class="cat-links" id="cl-${ci}"></div>`
+      <div class="cat-links"></div>`
 
-    main.appendChild(card)
+    const linksDiv = card.querySelector('.cat-links')
 
-    const wrap = card.querySelector(`#cl-${ci}`)
-
+    // built-in links
     cat.links.forEach(link => {
-      const isReal = link.url !== '#'
-      const fav    = isReal ? favicon(link.url) : null
-
-      const a = document.createElement('a')
-      a.className   = 'link-btn' + (isReal ? '' : ' no-link')
-      a.href        = isReal ? link.url : '#'
-      if (isReal) { a.target = '_blank'; a.rel = 'noopener noreferrer' }
-      a.title           = link.title
-      a.dataset.search  = link.title.toLowerCase() + ' ' + link.url.toLowerCase()
-
-      const imgHtml = fav
-        ? `<img src="${fav}" alt="" onerror="this.style.display='none'">`
-        : `<span style="font-size:10px;line-height:1">🔗</span>`
-
-      a.innerHTML = `${imgHtml}<span>${link.title}</span>${isReal ? EXT_ICON : ''}`
-      wrap.appendChild(a)
+      const id = builtinId(cat.name, link.title)
+      if (hidden.has(id)) return
+      linksDiv.appendChild(makeLinkEl(id, link.title, link.url, removeLink))
     })
+
+    // custom links for this category
+    catCustom.forEach(link => {
+      if (hidden.has(link.id)) return
+      linksDiv.appendChild(makeLinkEl(link.id, link.title, link.url, removeLink))
+    })
+
+    main.insertBefore(card, noRes)
   })
 
-  main.appendChild(noResults)
+  // custom links with no matching category
+  const knownCatNames = new Set(CATEGORIES.map(c => c.name))
+  const orphans = custom.filter(l => !knownCatNames.has(l.catName) && !hidden.has(l.id))
+  if (orphans.length) {
+    const card = document.createElement('section')
+    card.className = 'cat-card'
+    card.innerHTML = `
+      <div class="cat-header" style="background:#f8fafc;border-color:#e2e8f0">
+        <span class="cat-icon">🔗</span>
+        <span class="cat-name">Other</span>
+        <span class="cat-badge" style="background:#f1f5f9;color:#64748b">${orphans.length}</span>
+      </div>
+      <div class="cat-links"></div>`
+    const linksDiv = card.querySelector('.cat-links')
+    orphans.forEach(link => linksDiv.appendChild(makeLinkEl(link.id, link.title, link.url, removeLink)))
+    main.insertBefore(card, noRes)
+  }
 }
 
+function removeLink(id) {
+  const hidden = loadHidden()
+  hidden.add(id)
+  saveHidden(hidden)
+  render()
+  // re-apply any active search
+  const q = document.getElementById('search').value
+  if (q) filterLinks(q)
+}
+
+// ── Search ──────────────────────────────────────────────────────────────
 function filterLinks(query) {
   const q = query.trim().toLowerCase()
   document.getElementById('clearBtn').style.display = q ? 'block' : 'none'
 
   let visible = 0
-
   document.querySelectorAll('.cat-card').forEach(card => {
     let cardVisible = 0
-    card.querySelectorAll('.link-btn').forEach(btn => {
-      const show = !q || btn.dataset.search.includes(q)
-      btn.classList.toggle('hidden', !show)
+    card.querySelectorAll('.link-wrap').forEach(wrap => {
+      const show = !q || wrap.dataset.search.includes(q)
+      wrap.classList.toggle('hidden', !show)
       if (show) cardVisible++
     })
     card.classList.toggle('hidden', cardVisible === 0)
     visible += cardVisible
   })
-
-  const noRes = document.getElementById('noResults')
-  noRes.style.display = visible === 0 && q ? 'block' : 'none'
+  document.getElementById('noResults').style.display = visible === 0 && q ? 'block' : 'none'
 }
 
 function clearSearch() {
@@ -384,6 +497,61 @@ function clearSearch() {
   filterLinks('')
   inp.focus()
 }
+
+// ── Modal ───────────────────────────────────────────────────────────────
+function openModal() {
+  // populate category dropdown
+  const sel = document.getElementById('f-cat')
+  sel.innerHTML = CATEGORIES.map(c => `<option value="${c.name}">${c.icon} ${c.name}</option>`).join('')
+
+  document.getElementById('f-title').value = ''
+  document.getElementById('f-url').value   = 'https://'
+  hideErr('title'); hideErr('url')
+
+  document.getElementById('overlay').classList.add('open')
+  setTimeout(() => document.getElementById('f-title').focus(), 80)
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open')
+}
+
+function overlayClick(e) {
+  if (e.target === document.getElementById('overlay')) closeModal()
+}
+
+function showErr(field) { document.getElementById('err-' + field).style.display = 'block' }
+function hideErr(field) { document.getElementById('err-' + field).style.display = 'none' }
+
+function saveLink() {
+  const title   = document.getElementById('f-title').value.trim()
+  const url     = document.getElementById('f-url').value.trim()
+  const catName = document.getElementById('f-cat').value
+
+  let ok = true
+  if (!title)                        { showErr('title'); ok = false } else hideErr('title')
+  if (!url || url === 'https://')    { showErr('url');   ok = false } else hideErr('url')
+  if (!ok) return
+
+  const custom = loadCustom()
+  custom.push({ id: 'c::' + Date.now(), title, url, catName })
+  saveCustom(custom)
+  closeModal()
+  render()
+}
+
+// ── Reset ───────────────────────────────────────────────────────────────
+function resetLinks() {
+  if (!confirm('Remove all your added links and unhide any removed ones? The page will return to its defaults.')) return
+  localStorage.removeItem(KEY_CUSTOM)
+  localStorage.removeItem(KEY_HIDDEN)
+  render()
+}
+
+// ── Keyboard shortcut: Escape closes modal ──────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal()
+})
 
 document.getElementById('yr').textContent = new Date().getFullYear()
 render()
